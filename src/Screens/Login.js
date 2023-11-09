@@ -44,7 +44,7 @@ const Login = ({navigation, route}) => {
       });
       const {token} = res.data;
       dispatch(setToken(token));
-      dispatch(setFullName(params.fullName));
+      dispatch(setFullName(fullName || params.fullName));
       setIsLoading(false);
     } catch (error) {
       console.log(error);

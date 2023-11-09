@@ -8,13 +8,15 @@ import Container from '../components/Container';
 import {setName} from '../../redux/profileSlice';
 import {COLORS} from '../constants/theme';
 
-const Update = () => {
+const Update = ({navigation}) => {
   const dispatch = useDispatch();
   const [fullName, setFullName] = React.useState({});
 
   const handleUpdate = () => {
     dispatch(setName(fullName));
-    Alert.alert('Update Successful');
+    Alert.alert('Update Successful', '', [
+      {text: 'OK', onPress: () => navigation.navigate('Home')},
+    ]);
     setFullName({});
   };
 
