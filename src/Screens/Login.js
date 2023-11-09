@@ -8,7 +8,7 @@ import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
 
 import {COLORS} from '../constants/theme';
 import Container from '../components/Container';
-import {setFullName, setToken} from '../../redux/profileSlice';
+import {setName, setToken} from '../../redux/profileSlice';
 
 const Login = ({navigation, route}) => {
   const {params} = route;
@@ -44,7 +44,7 @@ const Login = ({navigation, route}) => {
       });
       const {token} = res.data;
       dispatch(setToken(token));
-      dispatch(setFullName(fullName || params.fullName));
+      dispatch(setName(fullName || params.fullName));
       setIsLoading(false);
     } catch (error) {
       console.log(error);
